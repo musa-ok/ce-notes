@@ -1,0 +1,187 @@
+📁 TEMEL TERMINAL KOMUTLARI
+dir / ls            : Bulunulan dizindeki dosya ve klasörleri listeler
+cd musa             : musa klasörüne girer
+cd ..               : Bir üst klasöre çıkar
+touch dosya.txt     : Yeni dosya oluşturur
+rm dosya.txt        : Dosya siler
+mkdir klasor        : Yeni klasör oluşturur
+rm -rf klasor       : Klasörü içindekilerle birlikte zorla siler
+rm --help           : rm komutunun açıklamalarını gösterir
+
+🔧 GIT TEMEL KOMUTLARI
+git init            : Bulunulan klasörü Git reposu yapar
+git status          : Dosyaların durumunu gösterir
+git add dosya.txt   : Dosyayı staged (commit’e hazır) yapar
+git add .           : Tüm değişiklikleri staged yapar
+git commit -m "msg" : Staged dosyaları kaydeder (commit)
+git log --oneline   : Commit geçmişini kısa gösterir
+git commit --amend  : Son commit mesajını/değişikliğini düzenler
+git push ne yapar?
+Senin bilgisayarındaki (local) commit’leri uzak repoya (genelde GitHub) gönderir.
+Yani:
+git commit → kaydı lokal olarak alır
+git push → o kayıtları GitHub’a yollar
+
+📌 İlk kez GitHub’a gönderme (main branch dahil)
+git init
+git branch -M main      # main branch’e geç / oluştur
+git add .
+git commit -m "ilk commit"
+git remote add origin <repo-link>
+git push -u origin main
+📝 Kısa notlar
+git branch -M main → branch adını main yapar
+git remote add origin → GitHub repo’yu tanıtırsın
+git push -u origin main → main → origin/main bağlanır
+Bundan sonra sadece:
+git push
+
+🧠 STAGED NEDİR?
+staged (staging area):
+Commit atmadan önce seçtiğin dosyaların beklediği alandır.
+
+Git’te dosyanın 3 hali vardır
+Untracked  : Git’in bilmediği dosya
+Modified   : Değişti ama staged değil
+Staged     : Commit’e girmeye hazır
+
+Akış
+Dosyayı değiştir
+git add → staged olur
+git commit → kalıcı olarak kaydedilir
+
+🔄 STAGED İŞLEMLERİ
+git restore --staged dosya.txt : Dosyayı staged’den çıkarır
+git restore --staged .         : Tüm staged dosyaları çıkarır
+
+
+📌 Dosya silinmez, değişiklik durur
+
+🚫 GIT TAKİBİNDEN ÇIKARMA
+git rm --cached musa.json      : Dosyayı Git takibinden çıkarır (diskte kalır)
+git rm -r --cached musa        : Klasörü Git takibinden çıkarır (diskte kalır)
+
+
+📌 “Bu dosya repo’da olmamalı” durumu
+------------------------------------------------------------------------------------
+📄 .gitignore NEDİR?
+.gitignore:
+İçine yazılan dosya ve klasörler Git tarafından hiç izlenmez.
+
+
+⚠️ Daha önce commit edilmişse:
+
+git rm --cached dosya
+---------------------------------------------------------------------------------
+📁 a/
+a/
+
+➡️ a adlı klasörü ve içindeki her şeyi temsil eder
+
+📄 *.json
+*.json
+➡️ Uzantısı .json olan tüm dosyalar
+------------------------------------------------------------------------------------
+📌 Branch Oluşturma
+1️⃣ Branch oluştur
+git branch yeni-branch
+
+
+👉 Sadece oluşturur, geçmez
+
+2️⃣ Branch’a geç
+git checkout yeni-branch
+
+🔥 Tek satırda oluştur + geç
+git checkout -b yeni-branch
+
+📌 En çok kullanılan budur
+
+📌 Mevcut Branch’leri Görme
+git branch
+
+🔁 Branch Değiştirme
+git checkout main
+
+
+(veya)
+
+git switch main
+
+✏️ Branch Adını Değiştirme
+🔹 İçindeyken
+git branch -m yeni-ad
+
+🔹 Dışındayken
+git branch -m eski-ad yeni-ad
+
+
+❌ Branch Silme
+🔹 Güvenli silme
+git branch -d branch-adi
+-----------------------------------------------------------------------------------------
+🧠 Merge Nedir?
+Merge = Bir branch’te yapılan değişiklikleri başka bir branch ile birleştirmek
+
+
+Genelde:
+
+feature → main
+
+dev → main
+
+📌 Merge Nasıl Yapılır?
+🔥 ALTIN KURAL
+
+Nereye merge edeceksen, önce O branch’e geç
+
+Örnek Senaryo
+login-feature branch’inde çalıştın
+şimdi main’e ekleyeceksin
+
+Adımlar
+git checkout main
+git merge login-feature
+
+
+➡️ login-feature içindeki commit’ler main’e eklenir
+----------------------------------------------------------------------------
+📌 GIT HEAD – KISA NOT
+
+HEAD → Şu an bulunduğun commit’i gösterir
+Git hangi commit’te çalıştığını HEAD ile bilir
+
+🌿 Branch ile HEAD
+Normalde: HEAD → branch → commit
+Yani HEAD branch’i, branch commit’i gösterir
+
+⚠️ Detached HEAD
+HEAD doğrudan commit’i gösterirse olur
+Branch’e bağlı değilsin
+Commit atarsan kaybolabilir
+
+🔙 Geri Gitme
+git checkout HEAD~1
+1 commit geri gider
+
+Sadece bakmak için
+Detached HEAD olur
+
+♻️ Reset (geri sarma)
+git reset --soft HEAD~1
+Commit silinir, dosyalar staged
+
+git reset --mixed HEAD~1
+Commit silinir, dosyalar unstaged
+
+git reset --hard HEAD~1
+Commit + dosyalar silinir ⚠️
+
+🧠 HEAD Kısaltmaları
+HEAD~1 → 1 önceki commit
+HEAD~2 → 2 önceki commit
+❗ Altın Kural
+checkout → geçmişe bak
+reset → geçmişi değiştir
+
+pip freeze > requirements.txt sanalda olan kütüphaneleri ekler

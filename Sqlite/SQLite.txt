@@ -1,0 +1,23 @@
+SELECT * FROM demo ; (Bütün tabloyu getirir)     (bu demo tablonun adı)
+SELECT name FROM demo ; (name kolonunu getirir)
+SELECT * FROM demo LIMIT 10 ; (ilk 10 tanesini getirir)
+SELECT * FROM demo WHERE name = "musa" ;
+SELECT * FROM demo WHERE id < 10 ;
+SELECT * FROM demo WHERE name LIKE "A%" ; (name kolonunda A ile başlayanları getirir.Bu mantıkla diğer türlüed yapabilirsin.A ile başlıyor belirttik  neyle biterse bitsin farketmez diye % koyuyoruz )
+INSERT INTO demo (name,hint) VALUES ('musa','örnek_ipucu') ; (ekleme)
+UPDATE demo SET name = 'test_user' WHERE id 27 ; (güncelleme)
+--UPDATE demo SET name = 'test_user' WHERE id 27 ; (sql de yorum satırına almak için iki tane - konur)
+DELETE FROM demo WHERE id = 27 ; (silme)
+
+CREATE TABLE IF NOT EXITS Students (id INTEGER PRIMARY KEY, name VARCHAR, surname VARCHAR ) ; (tablo oluşturma)
+
+def create_tables(cursor):
+    cursor.execute('''
+    CREATE TABLE Students (
+    id INTEGER PRİMARY KEY,
+    name VARCHAR(255) NOT NULL,(boş bırakılamaz not null ona yarıyor)
+    age INTEGER,
+    email VARCHAR UNIQUE,(bi emaille 1 den fazla kullanılamaz unıque o)
+    city VARCHAR)
+    
+    ''')

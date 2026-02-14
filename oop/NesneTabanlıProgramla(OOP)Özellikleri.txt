@@ -1,0 +1,146 @@
+📌 Nesne Tabanlı Programlama (OOP) Özellikleri – NOTLUK
+1️⃣ Class (Sınıf)
+
+Nesnelerin şablonudur.
+
+Özellik (attribute) ve metotları içerir.
+
+class Araba:
+    pass
+
+2️⃣ Object (Nesne)
+
+Class’tan üretilen gerçek örnek.
+
+a = Araba()
+
+3️⃣ Constructor (__init__)
+
+Nesne oluşurken otomatik çalışır.
+
+Nesneye ilk değerleri verir.
+
+def __init__(self, marka):
+    self.marka = marka
+
+4️⃣ Attribute (Özellik)
+
+Nesneye ait değişkenlerdir.
+
+self ile tanımlanır.
+
+self.hiz = 100
+
+5️⃣ Method (Metot)
+
+Class içinde tanımlanan fonksiyonlardır.
+
+def sur(self):
+    print("Sürülüyor")
+
+6️⃣ Encapsulation (Kapsülleme)
+
+Veriyi dış erişime kapatma.
+
+__ ile yapılır.
+
+self.__yas
+
+7️⃣ Inheritance (Kalıtım)
+
+Bir class başka class’tan özellik alır.
+
+class Kedi(Hayvan):
+    pass
+
+8️⃣ Polymorphism (Çok Biçimlilik)
+
+Aynı metot adı, farklı davranış.
+
+def ses(self):
+    pass
+
+9️⃣ Override (Metot Ezme)
+
+Üst class’taki metodu alt class’ta yeniden yazma.
+
+def ses(self):
+    print("Miyav")
+
+🔟 super()
+
+Üst class’ın metodunu çağırır.
+
+En çok __init__ içinde kullanılır.
+
+super().__init__()
+
+1️⃣1️⃣ Class Variable
+
+Class’a aittir.
+
+Tüm nesneler için ortaktır.
+
+okul = "Arel"
+
+1️⃣2️⃣ Instance Variable
+
+Nesneye aittir.
+
+Her nesnede farklı olabilir.
+
+self.no = 10
+
+1️⃣3️⃣ Static Method
+
+Nesneye bağlı değildir.
+
+self almaz.
+
+Kullanımı netleştirir.
+
+@staticmethod
+def topla(a, b):
+    return a + b
+
+1️⃣4️⃣ Abstract Class
+
+Şablon sınıftır.
+
+Nesnesi oluşturulamaz.
+
+Zorunlu metot tanımlar.
+
+from abc import ABC
+class Sekil(ABC):
+    pass
+
+1️⃣5️⃣ Abstract Method
+
+Alt class’ta yazılması zorunludur.
+
+Yazılmazsa program çalışmaz.
+
+@abstractmethod
+def alan(self):
+    pass
+
+🔥 TEK SATIRLIK ÖZET
+
+Class → şablon
+
+Object → gerçek nesne
+
+Encapsulation → gizle
+
+Inheritance → miras al
+
+Polymorphism → aynı isim, farklı iş
+
+Override → üsttekini ez
+
+super() → üstü çağır
+
+Static → nesnesiz
+
+Abstract → unutma diye zorla
