@@ -1,0 +1,25 @@
+# Python bytecode ve cache dosyaları
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Sanal ortam (Virtual Environment) klasörleri
+venv/
+env/
+.env
+
+# İşletim sistemi kalıntıları
+.DS_Store
+Thumbs.db
+
+# IDE ayarları (isteğe bağlı, temiz kalsın dersen kalsın)
+.vscode/
+.idea/
+
+# Veritabanı ve PDF (Gereksiz diyorsan)
+*.db
+*.sqlite3
+Deneme1.pdf
+
+# Büyük veri dosyaları veya loglar
+*.log
